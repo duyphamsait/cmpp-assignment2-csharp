@@ -12,20 +12,20 @@ namespace cmpp_assignment2_csharp.Models
         public string Dob { get; set; } = "";
         public double Gpa { get; set; }
 
-        public string Display(int recordNumber)
-        {
-            return $@"
-Record #{recordNumber}
-Student ID       : {StudentId}
-First Name       : {FirstName}
-Last Name        : {LastName}
-Date of Birth    : {Dob}
-Gender           : {Gender}
-GPA              : {Gpa:F2}
-Current Semester : {CurrentSemester}
-Program          : {ProgramName}
-Number of Courses: {NoOfCourses}";
-        }
+//         public string Display(int recordNumber)
+//         {
+//             return $@"
+// Record #{recordNumber}
+// Student ID       : {StudentId}
+// First Name       : {FirstName}
+// Last Name        : {LastName}
+// Date of Birth    : {Dob}
+// Gender           : {Gender}
+// GPA              : {Gpa:F2}
+// Current Semester : {CurrentSemester}
+// Program          : {ProgramName}
+// Number of Courses: {NoOfCourses}";
+//         }
 
         public static string TableHeader()
         {
