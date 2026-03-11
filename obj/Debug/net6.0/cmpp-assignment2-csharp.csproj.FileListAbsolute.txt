@@ -1,0 +1,15 @@
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/bin/Debug/net6.0/cmpp-assignment2-csharp
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/bin/Debug/net6.0/cmpp-assignment2-csharp.deps.json
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/bin/Debug/net6.0/cmpp-assignment2-csharp.runtimeconfig.json
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/bin/Debug/net6.0/cmpp-assignment2-csharp.dll
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/bin/Debug/net6.0/cmpp-assignment2-csharp.pdb
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/cmpp-assignment2-csharp.csproj.AssemblyReference.cache
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/cmpp-assignment2-csharp.GeneratedMSBuildEditorConfig.editorconfig
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/cmpp-assignment2-csharp.AssemblyInfoInputs.cache
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/cmpp-assignment2-csharp.AssemblyInfo.cs
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/cmpp-assignment2-csharp.csproj.CoreCompileInputs.cache
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/cmpp-assignment2-csharp.dll
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/refint/cmpp-assignment2-csharp.dll
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/cmpp-assignment2-csharp.pdb
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/cmpp-assignment2-csharp.genruntimeconfig.cache
+/Volumes/Data/SAIT/Advance Language/cmpp-assignment2-csharp/obj/Debug/net6.0/ref/cmpp-assignment2-csharp.dll
