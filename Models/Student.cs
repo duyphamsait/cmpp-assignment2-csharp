@@ -1,5 +1,17 @@
 namespace cmpp_assignment2_csharp.Models
 {
+    enum ColumnLength : int
+    {
+        No = 8,
+        ID = 8,
+        FirstName = 15,
+        LastName = 15,
+        DOB = 14,
+        Gender = 10,
+        GPA = 8,
+        Program = 25,
+    }
+
     public class Student
     {
         public int StudentId { get; set; }
@@ -30,28 +42,28 @@ namespace cmpp_assignment2_csharp.Models
         public static string TableHeader()
         {
             return
-                Pad("No", 4) +
-                Pad("ID", 8) +
-                Pad("FirstName", 15) +
-                Pad("LastName", 15) +
-                Pad("DOB", 14) +
-                Pad("Gender", 10) +
-                Pad("GPA", 8) +
-                Pad("Program", 25) +
+                Pad("No", (int)ColumnLength.No) +
+                Pad("ID", (int)ColumnLength.ID) +
+                Pad("FirstName", (int)ColumnLength.FirstName) +
+                Pad("LastName", (int)ColumnLength.LastName) +
+                Pad("DOB", (int)ColumnLength.DOB) +
+                Pad("Gender", (int)ColumnLength.Gender) +
+                Pad("GPA", (int)ColumnLength.GPA) +
+                Pad("Program", (int)ColumnLength.Program) +
                 "Courses";
         }
 
         public string TableRow(int recordNumber)
         {
             return
-                Pad(recordNumber.ToString(), 4) +
-                Pad(StudentId.ToString(), 8) +
-                Pad(FirstName, 15) +
-                Pad(LastName, 15) +
-                Pad(Dob, 14) +
-                Pad(Gender, 10) +
-                Pad(Gpa.ToString("F2"), 8) +
-                Pad(ProgramName, 25) +
+                Pad(recordNumber.ToString(), (int)ColumnLength.No) +
+                Pad(StudentId.ToString(), (int)ColumnLength.ID) +
+                Pad(FirstName, (int)ColumnLength.FirstName) +
+                Pad(LastName, (int)ColumnLength.LastName) +
+                Pad(Dob, (int)ColumnLength.DOB) +
+                Pad(Gender, (int)ColumnLength.Gender) +
+                Pad(Gpa.ToString("F2"), (int)ColumnLength.GPA) +
+                Pad(ProgramName, (int)ColumnLength.Program) +
                 NoOfCourses.ToString();
         }
 
