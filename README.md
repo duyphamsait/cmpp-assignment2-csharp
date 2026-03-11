@@ -21,9 +21,16 @@ Program UI ![Program UI Screenshot](ui.png)
 
 # Student Information
 
-Each student record contains: - Student ID - First Name - Last Name -
-Date of Birth - Gender - Previous GPA - Current Semester - Program -
-Number of Courses
+Each student record contains: 
+- Student ID 
+- First Name 
+- Last Name 
+- Date of Birth 
+- Gender 
+- Previous GPA 
+- Current Semester 
+- Program 
+- Number of Courses
 
 ------------------------------------------------------------------------
 
