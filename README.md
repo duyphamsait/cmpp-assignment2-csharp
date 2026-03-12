@@ -27,7 +27,7 @@ Each student record contains:
 - Last Name 
 - Date of Birth 
 - Gender 
-- Previous GPA 
+- GPA 
 - Current Semester 
 - Program 
 - Number of Courses
@@ -231,7 +231,7 @@ Loops are also used to display student records.
 ``` csharp
 for (int i = 0; i < students.Count; i++)
 {
-    Console.WriteLine(students[i].TableRow(i + 1));
+    Console.WriteLine(BuildStudentRow(students[i], i + 1));
 }
 ```
 

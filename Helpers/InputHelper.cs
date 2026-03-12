@@ -1,7 +1,9 @@
 namespace cmpp_assignment2_csharp.Helpers
 {
+    // Provides helper methods for reading and validating console input
     public static class InputHelper
     {
+        // Reads a non-empty string from the user
         public static string ReadString(string prompt)
         {
             while (true)
@@ -16,6 +18,7 @@ namespace cmpp_assignment2_csharp.Helpers
             }
         }
 
+        // Reads a valid integer
         public static int ReadInt(string prompt)
         {
             while (true)
@@ -29,6 +32,7 @@ namespace cmpp_assignment2_csharp.Helpers
             }
         }
 
+        // Reads an integer greater than or equal to the specified minimum
         public static int ReadInt(string prompt, int min)
         {
             while (true)
@@ -42,6 +46,7 @@ namespace cmpp_assignment2_csharp.Helpers
             }
         }
 
+        // Reads a double value within a specified range
         public static double ReadDouble(string prompt, double min, double max)
         {
             while (true)

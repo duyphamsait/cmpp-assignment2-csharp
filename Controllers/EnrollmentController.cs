@@ -5,19 +5,24 @@ using cmpp_assignment2_csharp.Views;
 
 namespace cmpp_assignment2_csharp.Controllers
 {
+    // Controller responsible for handling user actions and application flow
     public class EnrollmentController
     {
+        // Stores the list of students
         private List<Student> studentList = new();
+        // Keeps track of the next student ID
         private int nextStudentId = 1001;
 
         public EnrollmentController()
         {
             studentList = MockDataLoader.LoadStudents();
 
+            // Find next available student ID
             if (studentList.Count > 0)
                 nextStudentId = studentList.Max(s => s.StudentId) + 1;
         }
 
+        // Main application loop
         public void Run()
         {
             ConsoleView.DisplayHeader();
@@ -49,22 +54,23 @@ namespace cmpp_assignment2_csharp.Controllers
                         break;
 
                     case 0:
-                        Console.WriteLine("User Selected 'Exit'...");
+                        ConsoleView.ShowMessage("User Selected 'Exit'...");
                         running = false;
                         break;
 
                     default:
-                        Console.WriteLine("Please pick from one of the listed options.");
+                        ConsoleView.ShowMessage("Please pick from one of the listed options.");
                         break;
                 }
             }
 
-            Console.WriteLine("Program Closed Successfully.");
+            ConsoleView.ShowMessage("Program Closed Successfully.");
         }
 
+        // Adds a new student to the list        
         private void AddStudent()
         {
-            Console.WriteLine("\nEnter student information\n");
+            ConsoleView.ShowMessage("\nEnter student information\n");
 
             string firstName = InputHelper.ReadString("First name: ");
             string lastName = InputHelper.ReadString("Last name: ");
@@ -75,6 +81,7 @@ namespace cmpp_assignment2_csharp.Controllers
             string program = InputHelper.ReadString("Program name: ");
             int courses = InputHelper.ReadInt("Number of courses: ", 0);
 
+            // Create new student object
             Student student = new Student
             {
                 StudentId = nextStudentId,
@@ -88,55 +95,62 @@ namespace cmpp_assignment2_csharp.Controllers
                 Gpa = gpa
             };
 
+            // Add student to list
             studentList.Add(student);
             nextStudentId++;
 
-            Console.WriteLine("Student added successfully.\n");
+            ConsoleView.ShowMessage("Student added successfully.\n");
         }
 
+        // Removes a student by ID
         private void RemoveStudent()
         {
+            // Check if list is empty
             if (studentList.Count == 0)
             {
-                Console.WriteLine("No students to remove.\n");
+                ConsoleView.ShowMessage("No students to remove.\n");
                 return;
             }
 
             int id = InputHelper.ReadInt("Enter student ID to remove: ");
 
+            // Find student by ID - (FirstOrDefault C# Clourse)
             Student? student = studentList.FirstOrDefault(s => s.StudentId == id);
 
             if (student != null)
             {
                 studentList.Remove(student);
-                Console.WriteLine("Student removed successfully.\n");
+                ConsoleView.ShowMessage("Student removed successfully.\n");
             }
             else
             {
-                Console.WriteLine("Student ID not found.\n");
+                ConsoleView.ShowMessage("Student ID not found.\n");
             }
         }
 
+        // Modify a student record
         private void ModifyStudent()
         {
             if (studentList.Count == 0)
             {
-                Console.WriteLine("No students available.\n");
+                ConsoleView.ShowMessage("No students available.\n");
                 return;
             }
 
             int id = InputHelper.ReadInt("Enter student ID to modify: ");
 
+            // Find the student
             Student? student = studentList.FirstOrDefault(s => s.StudentId == id);
 
             if (student == null)
             {
-                Console.WriteLine("Student not found.\n");
+                ConsoleView.ShowMessage("Student not found.\n");
                 return;
             }
 
             bool editing = true;
 
+            // Loop until user finishes editing
             while (editing)
             {
                 ConsoleView.DisplayModifyMenu();
@@ -171,15 +185,16 @@ namespace cmpp_assignment2_csharp.Controllers
                         break;
                     case 0:
                         editing = false;
-                        Console.WriteLine("Modification completed.\n");
+                        ConsoleView.ShowMessage("Modification completed.\n");
                         break;
                     default:
-                        Console.WriteLine("Invalid choice.");
+                        ConsoleView.ShowMessage("Invalid choice.");
                         break;
                 }
             }
         }
 
+        // Displays all student records
         private void ViewRecords()
         {
             ConsoleView.DisplayStudents(studentList);
