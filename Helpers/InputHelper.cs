@@ -46,6 +46,27 @@ namespace cmpp_assignment2_csharp.Helpers
             }
         }
 
+        // Read date with format yyyy-MM-dd
+        public static DateTime ReadDate(string prompt)
+        {
+            while (true)
+            {
+                Console.Write(prompt);
+                string? input = Console.ReadLine();
+
+                if (DateTime.TryParseExact(
+                    input,
+                    "yyyy-MM-dd",
+                    null,
+                    System.Globalization.DateTimeStyles.None,
+                    out DateTime date))
+                {
+                    return date;
+                }
+
+                Console.WriteLine("Invalid date format. Use YYYY-MM-DD.");
+            }
+        }
         // Reads a double value within a specified range
         public static double ReadDouble(string prompt, double min, double max)
         {

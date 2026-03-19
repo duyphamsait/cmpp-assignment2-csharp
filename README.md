@@ -84,7 +84,7 @@ public class Student
     public string ProgramName { get; set; } = "";
     public int CurrentSemester { get; set; }
     public int NoOfCourses { get; set; }
-    public string Dob { get; set; } = "";
+    public DateTime Dob { get; set; } = "";
     public double Gpa { get; set; }
 }
 ```

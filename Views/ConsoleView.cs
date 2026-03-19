@@ -33,15 +33,15 @@ namespace cmpp_assignment2_csharp.Views
             Console.WriteLine("---- Modify Student ----");
             Console.WriteLine("1. First Name");
             Console.WriteLine("2. Last Name");
-            Console.WriteLine("3. Date of Birth");
-            Console.WriteLine("4. Gender");
-            Console.WriteLine("5. GPA");
-            Console.WriteLine("6. Semester");
-            Console.WriteLine("7. Program");
-            Console.WriteLine("8. Number of Courses");
+            Console.WriteLine("3. Gender");
+            Console.WriteLine("4. Program Name");
+            Console.WriteLine("5. Current Semester");
+            Console.WriteLine("6. Number of Courses");
+            Console.WriteLine("7. Date of Birth");
+            Console.WriteLine("8. GPA");
+            Console.WriteLine("9. Student ID");
             Console.WriteLine("0. Done");
         }
-
         // Displays a single message
         public static void ShowMessage(string message)
         {
@@ -92,7 +92,7 @@ namespace cmpp_assignment2_csharp.Views
                 Pad(student.StudentId.ToString(), (int)ColumnWidth.Id) +
                 Pad(student.FirstName, (int)ColumnWidth.FirstName) +
                 Pad(student.LastName, (int)ColumnWidth.LastName) +
-                Pad(student.Dob, (int)ColumnWidth.Dob) +
+                Pad(student.Dob.ToString("yyyy-MM-dd"), (int)ColumnWidth.Dob) +
                 Pad(student.Gender, (int)ColumnWidth.Gender) +
                 Pad(student.Gpa.ToString("F2"), (int)ColumnWidth.Gpa) +
                 Pad(student.ProgramName, (int)ColumnWidth.Program) +
@@ -103,6 +103,16 @@ namespace cmpp_assignment2_csharp.Views
         private static string Pad(string text, int width)
         {
             return text.PadRight(width);
+        }
+
+        // Puase wait until press any key to return to main menu
+        public static void Pause()
+        {
+            Console.WriteLine();
+            Console.Write("Press any key to return to main menu...");
+            Console.ReadKey();
+            Console.WriteLine();
+            Console.WriteLine();
         }
     }
 }

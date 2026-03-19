@@ -10,6 +10,7 @@ namespace cmpp_assignment2_csharp.Controllers
     {
         // Stores the list of students
         private List<Student> studentList = new();
+
         // Keeps track of the next student ID
         private int nextStudentId = 1001;
 
@@ -60,6 +61,7 @@ namespace cmpp_assignment2_csharp.Controllers
 
                     default:
                         ConsoleView.ShowMessage("Please pick from one of the listed options.");
+                        ConsoleView.Pause();
                         break;
                 }
             }
@@ -67,19 +69,19 @@ namespace cmpp_assignment2_csharp.Controllers
             ConsoleView.ShowMessage("Program Closed Successfully.");
         }
 
-        // Adds a new student to the list        
+        // Adds a new student to the list
         private void AddStudent()
         {
             ConsoleView.ShowMessage("\nEnter student information\n");
 
             string firstName = InputHelper.ReadString("First name: ");
             string lastName = InputHelper.ReadString("Last name: ");
-            string dob = InputHelper.ReadString("Date of birth: ");
             string gender = InputHelper.ReadString("Gender: ");
-            double gpa = InputHelper.ReadDouble("GPA (0.0 - 4.0): ", 0.0, 4.0);
-            int semester = InputHelper.ReadInt("Current semester: ", 1);
             string program = InputHelper.ReadString("Program name: ");
+            int semester = InputHelper.ReadInt("Current semester: ", 1);
             int courses = InputHelper.ReadInt("Number of courses: ", 0);
+            DateTime dob = InputHelper.ReadDate("Date of birth (YYYY-MM-DD): ");
+            double gpa = InputHelper.ReadDouble("GPA (0.0 - 4.0): ", 0.0, 4.0);
 
             // Create new student object
             Student student = new Student
@@ -97,9 +99,19 @@ namespace cmpp_assignment2_csharp.Controllers
 
             // Add student to list
             studentList.Add(student);
-            nextStudentId++;
 
-            ConsoleView.ShowMessage("Student added successfully.\n");
+            // Verify student added
+            if (studentList.Any(s => s.StudentId == student.StudentId))
+            {
+                ConsoleView.ShowMessage($"{student.FirstName} {student.LastName} added to Student List\n");
+                nextStudentId++;
+            }
+            else
+            {
+                ConsoleView.ShowMessage("Student not added – Try Again\n");
+            }
+
+            ConsoleView.Pause();
         }
 
         // Removes a student by ID
@@ -109,23 +121,26 @@ namespace cmpp_assignment2_csharp.Controllers
             if (studentList.Count == 0)
             {
                 ConsoleView.ShowMessage("No students to remove.\n");
+                ConsoleView.Pause();
                 return;
             }
 
             int id = InputHelper.ReadInt("Enter student ID to remove: ");
 
-            // Find student by ID - (FirstOrDefault C# Clourse)
+            // Find student by ID
             Student? student = studentList.FirstOrDefault(s => s.StudentId == id);
 
             if (student != null)
             {
                 studentList.Remove(student);
-                ConsoleView.ShowMessage("Student removed successfully.\n");
+                ConsoleView.ShowMessage("Student Removed from List\n");
             }
             else
             {
-                ConsoleView.ShowMessage("Student ID not found.\n");
+                ConsoleView.ShowMessage("Student Not Found\n");
             }
+
+            ConsoleView.Pause();
         }
 
         // Modify a student record
@@ -134,17 +149,20 @@ namespace cmpp_assignment2_csharp.Controllers
             if (studentList.Count == 0)
             {
                 ConsoleView.ShowMessage("No students available.\n");
+                ConsoleView.Pause();
                 return;
             }
 
-            int id = InputHelper.ReadInt("Enter student ID to modify: ");
+            ConsoleView.ShowMessage("Enter Student ID to modify:");
+            int id = InputHelper.ReadInt("Student ID: ");
 
             // Find the student
             Student? student = studentList.FirstOrDefault(s => s.StudentId == id);
 
             if (student == null)
             {
-                ConsoleView.ShowMessage("Student not found.\n");
+                ConsoleView.ShowMessage("Student Not Found\n");
+                ConsoleView.Pause();
                 return;
             }
 
@@ -162,42 +180,58 @@ namespace cmpp_assignment2_csharp.Controllers
                     case 1:
                         student.FirstName = InputHelper.ReadString("New first name: ");
                         break;
+
                     case 2:
                         student.LastName = InputHelper.ReadString("New last name: ");
                         break;
+
                     case 3:
-                        student.Dob = InputHelper.ReadString("New DOB: ");
-                        break;
-                    case 4:
                         student.Gender = InputHelper.ReadString("New gender: ");
                         break;
-                    case 5:
-                        student.Gpa = InputHelper.ReadDouble("New GPA: ", 0.0, 4.0);
-                        break;
-                    case 6:
-                        student.CurrentSemester = InputHelper.ReadInt("New semester: ", 1);
-                        break;
-                    case 7:
+
+                    case 4:
                         student.ProgramName = InputHelper.ReadString("New program: ");
                         break;
-                    case 8:
+
+                    case 5:
+                        student.CurrentSemester = InputHelper.ReadInt("New semester: ", 1);
+                        break;
+
+                    case 6:
                         student.NoOfCourses = InputHelper.ReadInt("New course count: ", 0);
                         break;
+
+                    case 7:
+                        student.Dob = InputHelper.ReadDate("New DOB (YYYY-MM-DD): ");
+                        break;
+
+                    case 8:
+                        student.Gpa = InputHelper.ReadDouble("New GPA: ", 0.0, 4.0);
+                        break;
+
+                    case 9:
+                        student.StudentId = InputHelper.ReadInt("New student ID: ", 1);
+                        break;
+
                     case 0:
                         editing = false;
                         ConsoleView.ShowMessage("Modification completed.\n");
                         break;
+
                     default:
                         ConsoleView.ShowMessage("Invalid choice.");
                         break;
                 }
             }
+
+            ConsoleView.Pause();
         }
 
         // Displays all student records
         private void ViewRecords()
         {
             ConsoleView.DisplayStudents(studentList);
+            ConsoleView.Pause();
         }
     }
 }

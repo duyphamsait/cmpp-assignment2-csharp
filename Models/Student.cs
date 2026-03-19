@@ -1,17 +1,5 @@
 namespace cmpp_assignment2_csharp.Models
 {
-    enum ColumnLength : int
-    {
-        No = 8,
-        ID = 8,
-        FirstName = 15,
-        LastName = 15,
-        DOB = 14,
-        Gender = 10,
-        GPA = 8,
-        Program = 25,
-    }
-
     public class Student
     {
         public int StudentId { get; set; }
@@ -21,7 +9,39 @@ namespace cmpp_assignment2_csharp.Models
         public string ProgramName { get; set; } = "";
         public int CurrentSemester { get; set; }
         public int NoOfCourses { get; set; }
-        public string Dob { get; set; } = "";
+        public DateTime Dob { get; set; }
         public double Gpa { get; set; }
+
+        // Construction
+        public Student(
+            int studentId,
+            string firstName,
+            string lastName,
+            string gender,
+            string programName,
+            int currentSemester,
+            int noOfCourses,
+            DateTime dob,
+            double gpa)
+        {
+            StudentId = studentId;
+            FirstName = firstName;
+            LastName = lastName;
+            Gender = gender;
+            ProgramName = programName;
+            CurrentSemester = currentSemester;
+            NoOfCourses = noOfCourses;
+            Dob = dob;
+            Gpa = gpa;
+        }
+
+        public Student()
+        {
+            FirstName = "";
+            LastName = "";
+            Gender = "";
+            ProgramName = "";
+        }
+
     }
 }
