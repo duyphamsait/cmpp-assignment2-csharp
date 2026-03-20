@@ -39,7 +39,7 @@ namespace cmpp_assignment2_csharp.Views
             Console.WriteLine("6. Number of Courses");
             Console.WriteLine("7. Date of Birth");
             Console.WriteLine("8. GPA");
-            Console.WriteLine("9. Student ID");
+            // Console.WriteLine("9. Student ID");
             Console.WriteLine("0. Done");
         }
         // Displays a single message

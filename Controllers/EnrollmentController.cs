@@ -178,40 +178,49 @@ namespace cmpp_assignment2_csharp.Controllers
                 switch (choice)
                 {
                     case 1:
-                        student.FirstName = InputHelper.ReadString("New first name: ");
+                        ConsoleView.ShowMessage("Selected: First Name (String)");
+                        student.FirstName = InputHelper.ReadString("Type new value: ");
                         break;
 
                     case 2:
-                        student.LastName = InputHelper.ReadString("New last name: ");
+                        ConsoleView.ShowMessage("Selected: Last Name (String)");
+                        student.LastName = InputHelper.ReadString("Type new value: ");
                         break;
 
                     case 3:
-                        student.Gender = InputHelper.ReadString("New gender: ");
+                        ConsoleView.ShowMessage("Selected: Gender (String)");
+                        student.Gender = InputHelper.ReadString("Type new value: ");
                         break;
 
                     case 4:
-                        student.ProgramName = InputHelper.ReadString("New program: ");
+                        ConsoleView.ShowMessage("Selected: Program Name (String)");
+                        student.ProgramName = InputHelper.ReadString("Type new value: ");
                         break;
 
                     case 5:
-                        student.CurrentSemester = InputHelper.ReadInt("New semester: ", 1);
+                        ConsoleView.ShowMessage("Selected: Current Semester (Integer)");
+                        student.CurrentSemester = InputHelper.ReadInt("Type new value: ", 1);
                         break;
 
                     case 6:
-                        student.NoOfCourses = InputHelper.ReadInt("New course count: ", 0);
+                        ConsoleView.ShowMessage("Selected: Number of Courses (Integer)");
+                        student.NoOfCourses = InputHelper.ReadInt("Type new value: ", 0);
                         break;
 
                     case 7:
-                        student.Dob = InputHelper.ReadDate("New DOB (YYYY-MM-DD): ");
+                        ConsoleView.ShowMessage("Selected: Date of Birth (YYYY-MM-DD)");
+                        student.Dob = InputHelper.ReadDate("Type new value: ");
                         break;
 
                     case 8:
-                        student.Gpa = InputHelper.ReadDouble("New GPA: ", 0.0, 4.0);
+                        ConsoleView.ShowMessage("Selected: GPA (Double)");
+                        student.Gpa = InputHelper.ReadDouble("Type new value: ", 0.0, 4.0);
                         break;
 
-                    case 9:
-                        student.StudentId = InputHelper.ReadInt("New student ID: ", 1);
-                        break;
+                    // case 9:
+                    //     ConsoleView.ShowMessage("Selected: Student ID (Integer)");
+                    //     student.StudentId = InputHelper.ReadInt("Type new value: ", 1);
+                    //     break;
 
                     case 0:
                         editing = false;
